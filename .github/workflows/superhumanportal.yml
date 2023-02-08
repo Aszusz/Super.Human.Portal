@@ -36,15 +36,15 @@ jobs:
           distribution: adopt
           java-version: ${{ matrix.java }}
     - name: Configure Git User
-        run: |
-          git config user.email actions@github.com
-          git config user.name GitHub Actions
+      run: |
+        git config user.email "actions@github.com"
+        git config user.name "GitHub Actions"
     - name: Maven Release
-        run: |
-          mvn release:prepare release:perform -B `
-            -s SuperHumanPortal/Super.Human.Portal_Royale/settings.xml `
-            -DreleaseVersion=${{ github.event.inputs.releaseVersion }} `
-            -DdevelopmentVersion=${{ github.event.inputs.developmentVersion }}
+      run: |
+        mvn release:prepare release:perform -B `
+          -s SuperHumanPortal/Super.Human.Portal_Royale/settings.xml `
+          -DreleaseVersion=${{ github.event.inputs.releaseVersion }} `
+          -DdevelopmentVersion=${{ github.event.inputs.developmentVersion }}
     - name: Store artifact in GitHub
       uses: actions/upload-artifact@v3.1.2
       with:
