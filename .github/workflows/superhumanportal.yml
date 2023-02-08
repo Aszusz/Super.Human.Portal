@@ -49,7 +49,7 @@ jobs:
       run: |
         cd SuperHumanPortal/Super.Human.Portal_Royale
         mvn release:perform -B `
-          -s settings.xml `
+          -s settings.nope.xml `
           -DreleaseVersion=${{ github.event.inputs.releaseVersion }} `
           -DdevelopmentVersion=${{ github.event.inputs.developmentVersion }}
           
