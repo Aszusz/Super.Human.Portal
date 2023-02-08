@@ -42,7 +42,8 @@ jobs:
         cd SuperHumanPortal/Super.Human.Portal_Royale
     
     - name: Maven Release Prepare
-      run: |        
+      run: |
+        pwd      
         mvn release:prepare
 
     - name: Maven Release Perform
