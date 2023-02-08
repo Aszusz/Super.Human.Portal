@@ -41,10 +41,10 @@ jobs:
         git config --global user.name "GitHub Actions"
     - name: Maven Release
       run: |
-        cd SuperHumanPortal
+        cd SuperHumanPortal/Super.Human.Portal_Royale
         mvn release:prepare `
           release:perform -B `
-          -s Super.Human.Portal_Royale/settings.xml `
+          -s settings.xml `
           -DreleaseVersion=${{ github.event.inputs.releaseVersion }} `
           -DdevelopmentVersion=${{ github.event.inputs.developmentVersion }} `
           
