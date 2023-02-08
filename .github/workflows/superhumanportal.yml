@@ -43,13 +43,13 @@ jobs:
     - name: Maven Release
       run: |
         mvn release:prepare release:perform -B `
-          -s Super.Human.Portal_Royale/settings.xml `
+          -s SuperHumanPortal/Super.Human.Portal_Royale/settings.xml `
           -DreleaseVersion=${{ github.event.inputs.releaseVersion }} `
           -DdevelopmentVersion=${{ github.event.inputs.developmentVersion }}
     - name: Store artifact in GitHub
       uses: actions/upload-artifact@v3.1.2
       with:
         name: Super.Human.Portal-dev
-        path: './Super.Human.Portal_Royale/target/javascript/bin/js-release'
+        path: './SuperHumanPortal/Super.Human.Portal_Royale/target/javascript/bin/js-release'
         retention-days: 5
         if-no-files-found: error
