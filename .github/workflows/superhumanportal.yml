@@ -1,0 +1,54 @@
+name: Super.Human.Portal Dev
+
+on:
+  workflow_dispatch:
+    inputs:
+      releaseVersion:
+        description: "Default version to use when preparing a release."
+        required: true
+        default: "X.Y.Z"
+      developmentVersion:
+        description: "Default version to use for new local working copy."
+        required: true
+        default: "X.Y.Z-SNAPSHOT"
+
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        java: [ 16 ]
+    steps:
+    - name: Checkout Super.Human.Portal
+      uses: actions/checkout@v3.3.0
+      with:
+        path: './SuperHumanPortal'
+    - name: Checkout PureMVC
+      uses: actions/checkout@v3.3.0 
+      with:
+        repository: 'PureMVC/puremvc-as3-multicore-framework'
+        path: './puremvc-as3-multicore-framework'
+    - name: Set up JDK 
+      uses: actions/setup-java@v3.9.0
+      with:
+          distribution: adopt
+          java-version: ${{ matrix.java }}
+    - name: Configure Git User
+        run: |
+          git config user.email "actions@github.com"
+          git config user.name "GitHub Actions"
+    - name: Maven Release
+        run: |
+          mvn release:prepare release:perform -B `
+            -s SuperHumanPortal/Super.Human.Portal_Royale/settings.xml `
+            -DreleaseVersion=${{ github.event.inputs.releaseVersion }} `
+            -DdevelopmentVersion=${{ github.event.inputs.developmentVersion }}
+    - name: Store artifact in GitHub
+      uses: actions/upload-artifact@v3.1.2
+      with:
+        name: Super.Human.Portal-dev
+        path: './SuperHumanPortal/Super.Human.Portal_Royale/target/javascript/bin/js-release'
+        retention-days: 5
+        if-no-files-found: error
