@@ -1,4 +1,4 @@
-name: Super.Human.Portal Dev
+name: Super.Human.Portal Prod
 
 on:
   workflow_dispatch:
@@ -37,8 +37,8 @@ jobs:
           java-version: ${{ matrix.java }}
     - name: Configure Git User
         run: |
-          git config user.email "actions@github.com"
-          git config user.name "GitHub Actions"
+          git config user.email actions@github.com
+          git config user.name GitHub Actions
     - name: Maven Release
         run: |
           mvn release:prepare release:perform -B `
