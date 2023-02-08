@@ -44,7 +44,8 @@ jobs:
         mvn release:prepare release:perform -B `
           -s SuperHumanPortal/Super.Human.Portal_Royale/settings.xml `
           -DreleaseVersion=${{ github.event.inputs.releaseVersion }} `
-          -DdevelopmentVersion=${{ github.event.inputs.developmentVersion }}
+          -DdevelopmentVersion=${{ github.event.inputs.developmentVersion }} `
+          --file SuperHumanPortal/Super.Human.Portal_Royale/pom.xml
     - name: Store artifact in GitHub
       uses: actions/upload-artifact@v3.1.2
       with:
