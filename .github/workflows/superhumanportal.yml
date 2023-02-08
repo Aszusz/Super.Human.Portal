@@ -43,13 +43,13 @@ jobs:
     - name: Maven Release Prepare
       run: |
         cd SuperHumanPortal/Super.Human.Portal_Royale     
-        mvn release:prepare
+        mvn release:prepare -s settings.xml 
 
     - name: Maven Release Perform
       run: |
         cd SuperHumanPortal/Super.Human.Portal_Royale
         mvn release:perform -B `
-          -s settings.nope.xml `
+          -s settings.xml `
           -DreleaseVersion=${{ github.event.inputs.releaseVersion }} `
           -DdevelopmentVersion=${{ github.event.inputs.developmentVersion }}
           
