@@ -39,15 +39,12 @@ jobs:
       run: |
         git config --global user.email "actions@github.com"
         git config --global user.name "GitHub Actions"
-    - name: Maven Release Prepare
+    - name: Maven Release
       run: |
+        cd SuperHumanPortal
         mvn release:prepare `
-          --file SuperHumanPortal/Super.Human.Portal_Royale/pom.xml
-
-    - name: Maven Release Perform
-      run: |
-        mvn release:perform -B `
-          -s SuperHumanPortal/Super.Human.Portal_Royale/settings.xml `
+          release:perform -B `
+          -s Super.Human.Portal_Royale/settings.xml `
           -DreleaseVersion=${{ github.event.inputs.releaseVersion }} `
           -DdevelopmentVersion=${{ github.event.inputs.developmentVersion }} `
           
