@@ -248,4 +248,12 @@
             </properties>
         </profile>
     </profiles>
+
+    <scm>
+        <connection>scm:git:https://github.com/Aszusz/Super.Human.Portal.git</connection>
+        <url>scm:git:https://github.com/Aszusz/Super.Human.Portal.git</url>
+        <developerConnection>scm:git:https://github.com/Aszusz/Super.Human.Portal.git</developerConnection>
+    <tag>HEAD</tag>
+  </scm>
+
 </project>
