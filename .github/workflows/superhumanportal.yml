@@ -46,10 +46,9 @@ jobs:
         pwd
         ls
         mvn release:prepare -B `
-          -s ./settings.xml `
+          -s settings.xml `
           -DreleaseVersion=${{ github.event.inputs.releaseVersion }} `
-          -DdevelopmentVersion=${{ github.event.inputs.developmentVersion }} `
-          --file Super.Human.Portal/Super.Human.Portal/Super.Human.Portal_Royale/pom.xml
+          -DdevelopmentVersion=${{ github.event.inputs.developmentVersion }}
 
     # - name: Maven Release Perform
     #   run: |
