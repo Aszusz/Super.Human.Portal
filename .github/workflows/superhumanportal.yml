@@ -38,13 +38,15 @@ jobs:
         xml-file: SuperHumanPortal/Super.Human.Portal_Royale/target/classes/version.xml
         xpath: '/root/version'
 
-    - name: Echo version
-      run: echo ${{ steps.readversion.outputs.value }}
-
-    - name: Store artifact in GitHub
-      uses: actions/upload-artifact@v3.1.2
+    - name: Create release
+      uses: softprops/action-gh-release@v1
       with:
-        name: Super.Human.Portal-dev
-        path: 'SuperHumanPortal/Super.Human.Portal_Royale/target/javascript/bin/js-release'
-        retention-days: 5
-        if-no-files-found: error
+        name: Production Release
+        tag_name: ${{ steps.readversion.outputs.info }}
+        body: |
+          This is a Production Release of Super.Human.Portal.
+        draft: true
+        prerelease: false
+        files: |
+          SuperHumanPortal/Super.Human.Portal_Royale/target/javascript/bin/js-release          
+        fail_on_unmatched_files: true
