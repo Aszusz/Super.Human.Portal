@@ -32,11 +32,11 @@ jobs:
       run: mvn -s SuperHumanPortal/Super.Human.Portal_Royale/settings.xml clean package --file SuperHumanPortal/Super.Human.Portal_Royale/pom.xml
 
     - name: Read version
-        id: readversion
-        uses: mavrosxristoforos/get-xml-info@1.1.1
-        with:
-          xml-file: SuperHumanPortal/Super.Human.Portal_Royale/target/classes/version.xml
-          xpath: '/root/version'
+      id: readversion
+      uses: mavrosxristoforos/get-xml-info@1.1.1
+      with:
+        xml-file: SuperHumanPortal/Super.Human.Portal_Royale/target/classes/version.xml
+        xpath: '/root/version'
 
     - name: Echo version
       run: echo ${{ steps.readversion.outputs.value }}
