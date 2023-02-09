@@ -47,8 +47,6 @@ jobs:
           -DreleaseVersion=${{ github.event.inputs.releaseVersion }} `
           -DdevelopmentVersion=${{ github.event.inputs.developmentVersion }} `
           --file SuperHumanPortal/Super.Human.Portal_Royale/pom.xml
-      with:
-        path: './SuperHumanPortal'
 
     - name: Maven Release Perform
       run: |
@@ -58,8 +56,6 @@ jobs:
           -DreleaseVersion=${{ github.event.inputs.releaseVersion }} `
           -DdevelopmentVersion=${{ github.event.inputs.developmentVersion }} `
           --file SuperHumanPortal/Super.Human.Portal_Royale/pom.xml
-      with:
-        path: './SuperHumanPortal'
 
           
     - name: Store artifact in GitHub
