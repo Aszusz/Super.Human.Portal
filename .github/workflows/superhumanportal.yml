@@ -45,10 +45,7 @@ jobs:
         cd SuperHumanPortal/Super.Human.Portal_Royale
         pwd
         ls
-        mvn release:prepare -B `
-          -s settings.xml `
-          -DreleaseVersion=${{ github.event.inputs.releaseVersion }} `
-          -DdevelopmentVersion=${{ github.event.inputs.developmentVersion }}
+        mvn release:prepare -s settings.xml -DreleaseVersion=${{ github.event.inputs.releaseVersion }} -DdevelopmentVersion=${{ github.event.inputs.developmentVersion }}
 
     # - name: Maven Release Perform
     #   run: |
