@@ -31,8 +31,8 @@ jobs:
     - name: Build Super.Human.Portal
       run: mvn -s SuperHumanPortal/Super.Human.Portal_Royale/settings.xml clean package --file SuperHumanPortal/Super.Human.Portal_Royale/pom.xml
 
-    - name: Print contents
-      run: ls -R SuperHumanPortal/Super.Human.Portal_Royale/target/
+    - name: Print version file
+      run: cat SuperHumanPortal/Super.Human.Portal_Royale/target/classes/version.xml
 
     - name: Store artifact in GitHub
       uses: actions/upload-artifact@v3.1.2
