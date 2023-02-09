@@ -30,7 +30,7 @@ jobs:
 
     - name: Build Super.Human.Portal
       run: |
-        mvn `
+        mvn clean package`
           -s SuperHumanPortal/Super.Human.Ptal_Royale/settings.xml `
           --file SuperHumanPortal/Super.Human.Portal_Royale/pom.xml
 
