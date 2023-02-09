@@ -42,7 +42,9 @@ jobs:
     
     - name: Maven Release Prepare
       run: |
+        cd SuperHumanPortal/Super.Human.Portal_Royale
         pwd
+        ls
         mvn release:prepare -B `
           -s Super.Human.Portal/Super.Human.Portal/Super.Human.Portal_Royale/settings.xml `
           -DreleaseVersion=${{ github.event.inputs.releaseVersion }} `
