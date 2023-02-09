@@ -41,7 +41,8 @@ jobs:
         git config --global user.name "GitHub Actions"
     
     - name: Maven Release Prepare
-      run: |   
+      run: |
+        pwd
         mvn release:prepare -B `
           -s Super.Human.Portal/Super.Human.Portal/Super.Human.Portal_Royale/settings.xml `
           -DreleaseVersion=${{ github.event.inputs.releaseVersion }} `
