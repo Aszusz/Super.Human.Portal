@@ -46,7 +46,7 @@ jobs:
         pwd
         ls
         mvn release:prepare -B `
-          -s Super.Human.Portal/Super.Human.Portal/Super.Human.Portal_Royale/settings.xml `
+          -s ./settings.xml `
           -DreleaseVersion=${{ github.event.inputs.releaseVersion }} `
           -DdevelopmentVersion=${{ github.event.inputs.developmentVersion }} `
           --file Super.Human.Portal/Super.Human.Portal/Super.Human.Portal_Royale/pom.xml
