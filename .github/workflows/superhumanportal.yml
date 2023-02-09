@@ -43,19 +43,19 @@ jobs:
     - name: Maven Release Prepare
       run: |   
         mvn release:prepare -B `
-          -s SuperHumanPortal/Super.Human.Portal_Royale/settings.xml `
+          -s Super.Human.Portal/Super.Human.Portal/Super.Human.Portal_Royale/settings.xml `
           -DreleaseVersion=${{ github.event.inputs.releaseVersion }} `
           -DdevelopmentVersion=${{ github.event.inputs.developmentVersion }} `
-          --file SuperHumanPortal/Super.Human.Portal_Royale/pom.xml
+          --file Super.Human.Portal/Super.Human.Portal/Super.Human.Portal_Royale/pom.xml
 
-    - name: Maven Release Perform
-      run: |
-        cd SuperHumanPortal/Super.Human.Portal_Royale
-        mvn release:perform -B `
-          -s SuperHumanPortal/Super.Human.Portal_Royale/settings.xml `
-          -DreleaseVersion=${{ github.event.inputs.releaseVersion }} `
-          -DdevelopmentVersion=${{ github.event.inputs.developmentVersion }} `
-          --file SuperHumanPortal/Super.Human.Portal_Royale/pom.xml
+    # - name: Maven Release Perform
+    #   run: |
+    #     cd SuperHumanPortal/Super.Human.Portal_Royale
+    #     mvn release:perform -B `
+    #       -s SuperHumanPortal/Super.Human.Portal_Royale/settings.xml `
+    #       -DreleaseVersion=${{ github.event.inputs.releaseVersion }} `
+    #       -DdevelopmentVersion=${{ github.event.inputs.developmentVersion }} `
+    #       --file SuperHumanPortal/Super.Human.Portal_Royale/pom.xml
 
           
     - name: Store artifact in GitHub
