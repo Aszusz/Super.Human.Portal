@@ -35,7 +35,7 @@ jobs:
           --file SuperHumanPortal/Super.Human.Portal_Royale/pom.xml
 
     - name: Print contents
-      uses: ls -R SuperHumanPortal/Super.Human.Portal_Royale/target/
+      run: ls -R SuperHumanPortal/Super.Human.Portal_Royale/target/
 
     - name: Store artifact in GitHub
       uses: actions/upload-artifact@v3.1.2
