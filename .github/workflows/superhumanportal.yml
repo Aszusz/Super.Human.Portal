@@ -38,6 +38,9 @@ jobs:
         xml-file: SuperHumanPortal/Super.Human.Portal_Royale/target/classes/version.xml
         xpath: '/root/version'
 
+    - name: Zip artifact for deployment
+      run: zip Super.Human.Portal.zip SuperHumanPortal/Super.Human.Portal_Royale/target/javascript/bin/js-release/* -r
+
     - name: Create release
       uses: softprops/action-gh-release@v1
       with:
@@ -48,5 +51,5 @@ jobs:
         draft: true
         prerelease: false
         files: |
-          SuperHumanPortal/Super.Human.Portal_Royale/target/javascript/bin/js-release          
+          Super.Human.Portal.zip          
         fail_on_unmatched_files: true
