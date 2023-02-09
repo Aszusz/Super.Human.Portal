@@ -29,10 +29,7 @@ jobs:
           java-version: ${{ matrix.java }}
 
     - name: Build Super.Human.Portal
-      run: |
-        mvn clean package`
-          -s SuperHumanPortal/Super.Human.Ptal_Royale/settings.xml `
-          --file SuperHumanPortal/Super.Human.Portal_Royale/pom.xml
+      run: mvn -s SuperHumanPortal/Super.Human.Portal_Royale/settings.xml clean package --file SuperHumanPortal/Super.Human.Portal_Royale/pom.xml
 
     - name: Print contents
       run: ls -R SuperHumanPortal/Super.Human.Portal_Royale/target/
