@@ -41,7 +41,7 @@ jobs:
     - name: Zip artifact
       uses: montudor/action-zip@v1.0.0
       with:
-        args: zip -qq -r Super.Human.Portal.zip SuperHumanPortal/Super.Human.Portal_Royale/target/javascript/bin/js-release/
+        args: zip -qq -r -j Super.Human.Portal.zip SuperHumanPortal/Super.Human.Portal_Royale/target/javascript/bin/js-release/
 
     - name: Create release
       uses: softprops/action-gh-release@v1
